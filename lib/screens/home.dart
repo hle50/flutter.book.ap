@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import './list.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
@@ -19,8 +20,18 @@ class Home extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
           child: Container(
-            decoration:  BoxDecoration(color: Colors.white.withOpacity(0.0)),
-            child: null,
+            decoration: BoxDecoration(color: Colors.white.withOpacity(0.0)),
+            child: Center(
+              child: Text(
+                'Book Store',
+                style: TextStyle(
+                  fontSize: 40,
+                  // fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontFamily: 'Montserrat'
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -28,6 +39,7 @@ class Home extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Add your onPressed code here!
+          Navigator.of(context).popAndPushNamed(ListPage.routeName);
         },
         label: Text('Enter store'),
         icon: Icon(Icons.book),
