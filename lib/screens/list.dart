@@ -12,6 +12,7 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   var bestSelling = Mock.getMockBooks().where((x) => x.type == 2).toList();
+  var romantic = Mock.getMockBooks().where((x) => x.type == 1).toList();
   var items = List<String>.generate(10000, (i) => "Item $i");
   @override
   Widget build(BuildContext context) {
@@ -103,7 +104,10 @@ class _ListPageState extends State<ListPage> {
                           width: 120.0,
                           child: GestureDetector(
                             onTap: () {
-                             Navigator.of(context).pushNamed(Details.routeName, arguments: {'id': bestSelling[index].id,});
+                              Navigator.of(context)
+                                  .pushNamed(Details.routeName, arguments: {
+                                'id': bestSelling[index].id,
+                              });
                             },
                             child: Card(
                               child: Wrap(
@@ -156,7 +160,7 @@ class _ListPageState extends State<ListPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Sci-fi & fantasy ebooks',
+                       'Fall for these romantic ebooks',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
@@ -167,48 +171,59 @@ class _ListPageState extends State<ListPage> {
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: bestSelling.length,
+                      itemCount: romantic.length,
                       itemBuilder: (context, index) {
                         return Container(
                           width: 120.0,
-                          child: Card(
-                            child: Wrap(
-                              alignment: WrapAlignment.spaceAround,
-                              children: <Widget>[
-                                Image.network(
-                                  bestSelling[index].url,
-                                  fit: BoxFit.cover,
-                                ),
-                                ListTile(
-                                  contentPadding: EdgeInsets.all(5),
-                                  title: Text(
-                                    bestSelling[index].name,
-                                    style: TextStyle(fontSize: 13),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Details.routeName, arguments: {
+                                'id': romantic[index].id,
+                              });
+                            },
+                            child: Card(
+                              child: Wrap(
+                                alignment: WrapAlignment.spaceAround,
+                                children: <Widget>[
+                                  Hero(
+                                    tag: romantic[index].id,
+                                    child: Image.network(
+                                      romantic[index].url,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                  subtitle: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        child: Row(
-                                          children: <Widget>[
-                                            Text(bestSelling[index]
-                                                .rating
-                                                .toString()),
-                                            Icon(
-                                              Icons.star,
-                                              size: 15,
-                                              color: Color(0xffCFCAC4),
-                                            ),
-                                          ],
+                                  ListTile(
+                                    contentPadding: EdgeInsets.all(5),
+                                    title: Text(
+                                      romantic[index].name,
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    subtitle: Row(
+                                      children: <Widget>[
+                                        Container(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Text(romantic[index]
+                                                  .rating
+                                                  .toString()),
+                                              Icon(
+                                                Icons.star,
+                                                size: 15,
+                                                color: Color(0xffCFCAC4),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                          "${bestSelling[index].price.toString()}\$"),
-                                    ],
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                        Text(
+                                            "${romantic[index].price.toString()}\$"),
+                                      ],
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -218,7 +233,7 @@ class _ListPageState extends State<ListPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Fall for these romantic ebooks',
+                      'Sci-fi & fantasy ebooks',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),

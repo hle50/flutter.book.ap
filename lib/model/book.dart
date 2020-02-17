@@ -62,6 +62,58 @@ class Mock {
         2,
       ),
     );
+
+// romantic
+      books.add(
+      Book(
+        6,
+        'The Texan\'s Wager',
+        4.5,
+        'https://books.google.com/books/content/images/frontcover/ypguDwAAQBAJ?fife=w200-h300',
+        5,
+        1,
+      ),
+    );
+     books.add(
+      Book(
+        7,
+        'The Complete Little Women Series: Little Women,',
+        7.5,
+        'https://books.google.com/books/content/images/frontcover/VAYAFuQhMTYC?fife=w200-h300',
+        5,
+        1,
+      ),
+    );
+     books.add(
+      Book(
+        8,
+        'You Drive Me Crazy',
+        4.5,
+        'https://books.google.com/books/content/images/frontcover/BsxBDwAAQBAJ?fife=w200-h300',
+        5,
+        1,
+      ),
+    );
+     books.add(
+      Book(
+        9,
+        'Cooper',
+        4.5,
+        'https://books.google.com/books/content/images/frontcover/Rp1GDwAAQBAJ?fife=w200-h300',
+        5,
+        1,
+      ),
+    );
+     books.add(
+      Book(
+        10,
+        'Room mate',
+        4.5,
+        'https://books.google.com/books/content/images/frontcover/_1ToDQAAQBAJ?fife=w200-h300',
+        5,
+        1,
+      ),
+    );
     return books;
   }
 }

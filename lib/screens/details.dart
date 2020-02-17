@@ -17,7 +17,7 @@ class Details extends StatelessWidget {
           color: Color(0xffCFCAC4), //change your color here
         ),
         actions: <Widget>[
-          Icon(Icons.border_outer, color: Color(0xffCFCAC4)),
+          Icon(Icons.bookmark_border, color: Color(0xffCFCAC4)),
           Icon(Icons.search, color: Color(0xffCFCAC4)),
           Icon(Icons.more_vert, color: Color(0xffCFCAC4)),
         ],
@@ -163,14 +163,36 @@ class Details extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             'Ebook \$${book.price.toString()}',
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 )),
-              )
+              ),
+              Container(
+                  margin: EdgeInsets.only(top: 20),
+                  alignment: Alignment.topLeft,
+                  child: Wrap(
+                    children: <Widget>[
+                      ListTile(
+                        title: Text(
+                          'About this book',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
+                        ),
+                        subtitle: Text(
+                            'What would you do if you could remember anything? "How to Remember Anything shows how a radically improved memory can add real value in life and in business and can help build your career and your personal life. It is full of practical techniques that will not just show you how to remember things such as numbers, dates and facts, but also real and innovative insight into new ways of learning and processing information that could completely change your life. The goal of this book is to show you how to use your new, improved memory to enhance your career, your personal life and your leisure time, and because of this it is more practical and transformational than any other \'Memory boosting\' title available.',
+                            style: TextStyle(height: 1.5),
+                            ),
+                      )
+                    ],
+                  ))
             ],
           ),
         ),
